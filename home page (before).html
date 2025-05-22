@@ -1,17 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap 5 CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 </head>
 <body>
-    <div class="body kit">
-
+    <div class="header">
+        <img src="image source/Black_Retro_Car_Repair_Garage_Logo__1_-removebg-preview.png" width="130px" height="100px" />
+        <!-- <a href="Search page.html"> -->
+        <div class="container mt-3">
+            <div class="d-flex justify-content-center">
+                <form class="d-flex" role="search">
+                    <span class="input-group-text" id="search-icon">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input
+                      class="form-control me-2"
+                      type="search"
+                      placeholder="Cari sparepart"
+                      aria-label="Search"
+                    />
+                    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                </form>
+            </div>
+        </div>
+        <!-- </a> -->
+        <a href="Register.html">
+            <p>Register</p>
+        </a>
+        <a href="Login.html">
+            <button
+              style="
+                width: 100px;
+                height: 30px;
+                border-radius: 20px;
+                margin-left: 20px;
+                justify-content: end;
+              "
+            >
+              login
+            </button>
+        </a>
     </div>
 
-    <div class="machine">
-        
+    <div class="card text-bg-dark">
+        <img
+          src="image source/Brown Blue Motorbike Rental Banner Landscape.png"
+          class="card-img"
+          alt="..."
+        />
+        <div class="card-img-overlay">
+            <!--
+            <h5 class="card-title">Getting by shop</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit longer.
+            </p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+            -->
+            <a
+              href="#"
+              class="btn btn-primary mt-10"
+              style="
+                margin-top: 470px;
+                margin-left: 140px;
+                padding-left: 90px;
+                padding-right: 90px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                border-radius: 70px;
+                background-color: #e7f0fb;
+                color: black;
+              "
+              >Mulai Belanja</a
+            >
+        </div>
     </div>
+
+    <a href="dashboard page.html">
+        <button>-></button>
+    </a>
+
+    <div class="kategori">
+        <h2>kategori</h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 w-75">
+                    <img
+                      src="image source/Jenis-Jenis-Sparepart-Mobil-dan-Bagian-Bagiannya.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">Sparepart mesin dan performa</h5>
+                        <p class="card-text">
+                            Berisikan Piston, noken as, klep, blok mesin
+                            Kopling, transmisi, CVT, rantai
+                            Karburator, injektor, throttle body
+                        </p>
+                    </div>
+                    <!--
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 w-75">
+                    <img
+                      src="image source/pengertian-sistem-pelumasan.png"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">Sistem pendingin & pelumasan</h5>
+                        <p class="card-text">
+                            berisikan Radiator, kipas, thermostat
+                            Oli, filter oli, filter udara
+                            Water pump, coolant
+                        </p>
+                    </div>
+                    <!--
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 w-75">
+                    <img
+                      src="image source/1683005827sistemkelistrikanmobil.png"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">Sistem Kelistrikan & elektronik</h5>
+                        <p class="card-text">
+                            Berisikan Aki, busi, CDI, koil, ECU
+                            Saklar, relay, sekring
+                            Lampu, spidometer, sensor
+                        </p>
+                    </div>
+                    <!--
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 w-75">
+                    <img
+                      src="image source/images.jpg"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">Rem,suspensi,Roda & kemudi</h5>
+                        <p class="card-text">
+                            Berisikan Kampas rem, cakram, master rem
+                            Shockbreaker, ball joint, tie rod
+                            Ban, velg, bearing, fork depan
+                        </p>
+                    </div>
+                    <!--
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                    -->
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 w-75">
+                    <img
+                      src="image source/Motorcycle-Parts-Motorcycle-Accessories-Handle-Grips-FT-110-Italkia.avif"
+                      class="card-img-top"
+                      alt="..."
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">Body & Aksesori</h5>
+                        <p class="card-text">
+                            Berisikan Spion, jok, bodi kit, footstep
+                            Knalpot, wiper, handle
+                            AC (mobil), kaca, fairing (motor)
+                        </p>
+                    </div>
+                    <!--
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner2"></div>
+    <div class="banner3"></div>
+    <div class="banner4"></div>
 </body>
 </html>
