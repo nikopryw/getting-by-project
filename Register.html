@@ -4,27 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="validation.js" defer></script>
 </head>
 <body>
-    <h1>Register Page</h1>
+    <div class="header">
+        <img src="image source/Black_Retro_Car_Repair_Garage_Logo__1_-removebg-preview.png" width="130px" height="100px">
+    </div>
+    
+    <div class="login-and-register-container">
+    <span style=" text-align: center;"><h1>Register Page</h1></span>
+
+    <div class="register-form">
+    <form id="Register-form">
         <label>username</label>
-        <input type="text">
+        <input type="text" name="UserName" required style="margin-left: 100px;">
     <br>
     
         <label>email</label>
-        <input type="email">
+        <input type="email" name="Email" required style="margin-left: 125px;">
+    <br>
+
+        <label>Birthdate</label>
+        <input type="date" name="Birthdate" required style="margin-left: 101px; padding-right: 2px;">
     <br>
 
         <label>password</label>
-        <input type="password">
+        <input type="password" name="Password" required style="margin-left: 100px;">
     <br>
 
         <label>confirm password</label>
-        <input type="password">
+        <input type="password" name="ConfirmPassword" required style="margin-left: 45px;">
     <br>
+    </div>
 
-    <a href="Login.html">
-        <button id="Register">Register</button>
-    </a>
+    <!-- <a href="Login.html"> -->
+        <button id="Register" class="submit-button">Register</button>
+    <!-- </a> -->
+    </div>
+    </form>
 </body>
 </html>
