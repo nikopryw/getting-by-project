@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+     <script src="validation.js" defer></script>
 </head>
 
 <body>
-    <h1>Login Page</h1>
-        <input type="text">
+    <div class="header">
+        <img src="image source/Black_Retro_Car_Repair_Garage_Logo__1_-removebg-preview.png" width="130px" height="100px">
+    </div>
+    <div class="login-and-register-container">
+    <span style="text-align: center;"><h1>Login Page</h1></span>
+    <div class="login-form">
+        <label>username</label>
+        <input type="text" id="login-username" required>
     <br>
-        <input type="password">
+        <label>Password</label>
+        <input type="password" id="login-password"required>
     <br>
-    <a href="">
-        <button id="Login">Login</button>
-    </a>
-        
+    </div>
+        <button id="Login" class="submit-button">Login</button>
+    </div>
 </body>
 </html>
