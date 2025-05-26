@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sidebar with Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex min-h-screen items-stretch bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-600 text-white flex flex-col">
+    <div class="p-6 text-2xl font-bold border-b border-gray-700">
+      Shopping
+    </div>
+    <nav class="flex-grow p-6 space-y-4">
+      <a href="#" class="block px-4 py-2 rounded hover:bg-gray-700">Dashboard</a>
+      <a href="home page (after).html" class="block px-4 py-2 rounded hover:bg-gray-700">Explore Product</a>
+      <a href="category page.html" class="block px-4 py-2 rounded hover:bg-gray-700">Category</a>
+    </nav>
+
+    <div class="p-4 text-xl font-bold border-t border-gray-700">
+      Help and setting
+    </div>
+
+    <div class="p-4 border-t border-gray-700 mt-auto">
+      <a href="#" class="block px-4 py-2 rounded hover:bg-gray-700 mb-4">Settings</a>
+      <a href="home page (before).html">
+        <button class="w-full bg-orange-500 text-black py-2 rounded hover:bg-orange-600">
+          Logout
+        </button>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="flex-grow p-8 overflow-auto">
+    <!-- Section Best Seller -->
+    <h1 class="text-3xl font-bold mb-6">Best Seller</h1>
+    <p class="mb-4">This is the main content area next to the sidebar.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/aki best.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Aki Mobil NS40Z</h5>
+          <p class="text-gray-600">Rp900.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/Busi Best.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Busi Motor NGK CPR9EA</h5>
+          <p class="text-gray-600">Rp30.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/Radiator Best.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Radiator Mobil Toyota</h5>
+          <p class="text-gray-600">Rp1.500.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/injektor best.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Injektor Motor Vario</h5>
+          <p class="text-gray-600">Rp350.000</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Diskon -->
+    <h1 class="text-3xl font-bold mb-6">Diskon</h1>
+    <p class="mb-4">This is the main content area next to the sidebar.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/spioler diskon.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Spoiler Mobil Racing</h5>
+          <p class="text-gray-600">Rp1.500.000 -> Rp999.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/Aki diskon.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Aki Motor GS Astra</h5>
+          <p class="text-gray-600">Rp300.000 -> Rp250.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/Piston diskon.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Piston Mobil Honda</h5>
+          <p class="text-gray-600">Rp600.000 -> Rp480.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/data.jpeg.webp" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Bumper Motor Beat</h5>
+          <p class="text-gray-600">Rp300.000 -> Rp220.000</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Product -->
+    <h1 class="text-3xl font-bold mb-6">Product</h1>
+    <p class="mb-4">This is the main content area next to the sidebar.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/Piston product.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Piston Motor Mio J</h5>
+          <p class="text-gray-600">Rp200.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/injektor product.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Injektor Mobil Diesel</h5>
+          <p class="text-gray-600">Rp800.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/8b268cf5b66db275b05c61dbfd529740.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Radiator Motor Ninja</h5>
+          <p class="text-gray-600">Rp600.000</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="image source/busi product.jpg" alt="..." class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h5 class="text-lg font-bold mb-2">Busi Mobil Denso Iridium</h5>
+          <p class="text-gray-600">Rp50.000</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
