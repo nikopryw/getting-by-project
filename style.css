@@ -60,3 +60,10 @@ label{
     background-color: aquamarine;
     display: flex;
 }
+
+#notifs {
+    background-color: rgb(114, 255, 215);
+    border: 1px solid black;
+    padding: 30px;
+    margin: 50px;
+}
