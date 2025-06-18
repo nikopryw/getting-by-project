@@ -1,0 +1,201 @@
+// Product.php
+class Product extends Model
+{
+    protected $fillable = ['name', 'description', 'price', 'image', 'category', 'is_best_seller', 'is_discounted', 'original_price'];
+}
+
+// Cart.php
+class Cart extends Model
+{
+    public function items()
+    {
+        return $this->hasMany(CartItem::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
+
+// CartItem.php
+class CartItem extends Model
+{
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+}
+
+
+// CartController.php
+use Illuminate\Support\Facades\Auth;
+
+class CartController extends Controller
+{
+    public function index()
+    {
+        $cart = $this->getCart();
+        $cartItems = $cart->items()->with('product')->get();
+        
+        $subtotal = 0;
+        foreach ($cartItems as $item) {
+            $subtotal += $item->product->price * $item->quantity;
+        }
+        
+        $tax = $subtotal * 0.1; // 10% tax
+        $total = $subtotal + $tax;
+        
+        return view('cart', compact('cartItems', 'subtotal', 'tax', 'total'));
+    }
+
+    public function addToCart(Request $request, $productId)
+    {
+        $cart = $this->getCart();
+        $product = Product::findOrFail($productId);
+        
+        $cartItem = $cart->items()->where('product_id', $productId)->first();
+        
+        if ($cartItem) {
+            $cartItem->quantity += $request->quantity ?? 1;
+            $cartItem->save();
+        } else {
+            CartItem::create([
+                'cart_id' => $cart->id,
+                'product_id' => $productId,
+                'quantity' => $request->quantity ?? 1
+            ]);
+        }
+        
+        return redirect()->back()->with('success', 'Product added to cart!');
+    }
+
+    public function updateCart(Request $request, $itemId)
+    {
+        $item = CartItem::findOrFail($itemId);
+        $item->quantity = $request->quantity;
+        $item->save();
+        
+        return redirect()->route('cart.index');
+    }
+
+    public function removeFromCart($itemId)
+    {
+        CartItem::destroy($itemId);
+        return redirect()->route('cart.index');
+    }
+
+    private function getCart()
+    {
+        if (Auth::check()) {
+            return Auth::user()->cart()->firstOrCreate();
+        }
+        
+        // For guests
+        $sessionToken = session()->getId();
+        return Cart::firstOrCreate(['session_token' => $sessionToken]);
+    }
+}
+
+
+// web.php
+use App\Http\Controllers\CartController;
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::put('/cart/update/{item}', [CartController::class, 'updateCart'])->name('cart.update');
+Route::delete('/cart/remove/{item}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+
+// LoginController.php
+public function authenticate(Request $request)
+{
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+        return redirect()->intended('dashboard');
+    }
+
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ]);
+}
+
+// RegisterController.php
+protected function create(array $data)
+{
+    return User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+    ]);
+}
+
+
+// validation.js (updated)
+document.addEventListener("DOMContentLoaded", function () {
+  const registerForm = document.getElementById("Register-form");
+  const loginForm = document.getElementById("login-form");
+
+  if (registerForm) {
+    registerForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      // Validation logic...
+      
+      // Send to Laravel backend
+      const response = await fetch('/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({
+          name: username,
+          email: email,
+          password: password,
+          password_confirmation: confirmPassword
+        })
+      });
+      
+      if (response.ok) {
+        window.location.href = "{{ route('login') }}";
+      } else {
+        const error = await response.json();
+        alert(error.message);
+      }
+    });
+  }
+});
+
+
+// ProductsTableSeeder.php
+public function run()
+{
+    Product::create([
+        'name' => 'Aki Mobil NS40Z',
+        'price' => 900000,
+        'image' => 'aki-best.jpg',
+        'is_best_seller' => true
+    ]);
+
+    Product::create([
+        'name' => 'Busi Motor NGK CPR9EA',
+        'price' => 30000,
+        'image' => 'busi-best.jpg',
+        'is_best_seller' => true
+    ]);
+    
+    // Add all your products from HTML files...
+}
+
+
